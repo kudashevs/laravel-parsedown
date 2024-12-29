@@ -16,9 +16,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 
     protected string $text = '**Parsedown** UnitTest';
 
-    /**
-     * @return BladeCompiler
-     */
     protected function getCompiler()
     {
         if (!$this->compiler) {
@@ -28,10 +25,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         return $this->compiler;
     }
 
-    /**
-     * @param Application $app
-     * @return array
-     */
     protected function getPackageProviders($app)
     {
         return [
