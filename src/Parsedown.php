@@ -22,4 +22,24 @@ final class Parsedown
     {
         return $this->parser->text($text);
     }
+
+    public function setSafeMode(bool $safeMode): void
+    {
+        $this->parser->setSafeMode($safeMode);
+    }
+
+    public function setBreaksEnabled(bool $enableBreaks): void
+    {
+        $this->parser->setBreaksEnabled($enableBreaks);
+    }
+
+    public function setMarkupEscaped(bool $escapeMakrup): void
+    {
+        $this->parser->setMarkupEscaped($escapeMakrup);
+    }
+
+    public function setUrlsLinked(bool $linkUrls): void
+    {
+        $this->parser->setUrlsLinked($linkUrls);
+    }
 }
