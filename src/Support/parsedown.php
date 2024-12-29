@@ -2,11 +2,11 @@
 
 return [
     /**
-     * Tells **Parsedown** if it should convert line breaks such as `\n` into `<br />` tags.
+     * Tells **Parsedown** whether it should \ParsedownExtra instead of \Parsedown.
      *
-     * @see https://github.com/erusev/parsedown/wiki/Usage
+     * @see https://github.com/erusev/parsedown#security
      */
-    'breaks_enabled' => false,
+    'enable_extra' => false,
 
     /**
      * Tells **Parsedown** whether it should process untrusted user-input.

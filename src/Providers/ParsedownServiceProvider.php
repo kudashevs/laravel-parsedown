@@ -5,7 +5,7 @@ namespace Kudashevs\LaravelParsedown\Providers;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
-use Parsedown;
+use Kudashevs\LaravelParsedown\Parsedown;
 
 /**
  * Class ParsedownServiceProvider
@@ -35,7 +35,7 @@ class ParsedownServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton('parsedown', function () {
-            $parsedown = Parsedown::instance();
+            $parsedown = $this->makeParsedown();
 
             $parsedown->setSafeMode(
                 Config::get('parsedown.safe_mode')
@@ -57,5 +57,12 @@ class ParsedownServiceProvider extends ServiceProvider
         });
 
         $this->mergeConfigFrom(__DIR__ . '/../Support/parsedown.php', 'parsedown');
+    }
+
+    protected function makeParsedown(): Parsedown
+    {
+        return new Parsedown([
+            'enable_extra' => config('parsedown.enable_extra'),
+        ]);
     }
 }

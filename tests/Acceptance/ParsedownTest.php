@@ -14,7 +14,8 @@ class ParsedownTest extends TestCase
     {
         parent::setUp();
 
-        $this->parser = new Parsedown();
+        config()->set('parsedown.enable_extra', true);
+        $this->parser = app('parsedown');
     }
 
     /** @test */
@@ -23,7 +24,7 @@ class ParsedownTest extends TestCase
         $text = '*Parsedown* Test';
         $expected = '<em>Parsedown</em> Test';
 
-        $this->assertSame($expected, ParsedownFacade::line($text));
+        $this->assertSame($expected, $this->parser->line($text));
     }
 
     /** @test */
@@ -32,7 +33,16 @@ class ParsedownTest extends TestCase
         $text = '***Parsedown*** Test';
         $expected = '<p><strong><em>Parsedown</em></strong> Test</p>';
 
-        $this->assertSame($expected, ParsedownFacade::text($text));
+        $this->assertSame($expected, $this->parser->text($text));
+    }
+
+    /** @test */
+    public function it_can_parse_a_text_with_extra(): void
+    {
+        $text = '## Parsedown Test {.info}';
+        $expected = '<h2 class="info">Parsedown Test</h2>';
+
+        $this->assertSame($expected, $this->parser->text($text));
     }
 
     /** @test */

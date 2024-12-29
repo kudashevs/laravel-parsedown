@@ -31,4 +31,17 @@ class ParsedownTest extends TestCase
 
         $this->assertSame($expected, $this->parser->text($text));
     }
+
+    /** @test */
+    public function it_can_parse_a_text_with_parsedown_extra(): void
+    {
+        $parser = new Parsedown([
+            'enable_extra' => true,
+        ]);
+
+        $expected = '<h2 class="sth">Parsedown</h2>' . "\n" . '<p>Test</p>';
+        $text = '## Parsedown {.sth}' . "\n" . 'Test';
+
+        $this->assertSame($expected, $parser->text($text));
+    }
 }
