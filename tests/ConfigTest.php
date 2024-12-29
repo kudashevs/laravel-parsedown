@@ -10,10 +10,7 @@ use Illuminate\Support\Facades\Config;
  */
 class ConfigTest extends TestCase
 {
-    /**
-     * @var string
-     */
-    protected $url = 'http://parsedown.org/';
+    protected string $url = 'http://parsedown.org/';
 
     /** @test */
     public function it_can_disable_safe_mode(): void
