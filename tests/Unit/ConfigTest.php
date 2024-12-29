@@ -5,10 +5,6 @@ namespace Kudashevs\LaravelParsedown\Tests\Unit;
 use Illuminate\Support\Facades\Config;
 use Kudashevs\LaravelParsedown\Tests\TestCase;
 
-/**
- * Class ConfigTest
- * @package Tests
- */
 class ConfigTest extends TestCase
 {
     protected string $url = 'https://parsedown.org/';

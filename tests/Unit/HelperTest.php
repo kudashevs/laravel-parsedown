@@ -4,10 +4,6 @@ namespace Kudashevs\LaravelParsedown\Tests\Unit;
 
 use Kudashevs\LaravelParsedown\Tests\TestCase;
 
-/**
- * Class HelperTest
- * @package Tests
- */
 class HelperTest extends TestCase
 {
     /** @test */
