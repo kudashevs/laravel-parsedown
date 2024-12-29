@@ -12,15 +12,9 @@ use Parsedown\Providers\ParsedownServiceProvider;
  */
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
-    /**
-     * @var BladeCompiler
-     */
-    protected $compiler;
+    protected BladeCompiler $compiler;
 
-    /**
-     * @var string
-     */
-    protected $text = '**Parsedown** UnitTest';
+    protected string $text = '**Parsedown** UnitTest';
 
     /**
      * @return BladeCompiler
