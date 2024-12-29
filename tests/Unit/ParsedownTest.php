@@ -1,8 +1,9 @@
 <?php
 
-namespace Kudashevs\LaravelParsedown\Tests;
+namespace Kudashevs\LaravelParsedown\Tests\Unit;
 
 use Kudashevs\LaravelParsedown\Parsedown;
+use Kudashevs\LaravelParsedown\Tests\TestCase;
 
 class ParsedownTest extends TestCase
 {

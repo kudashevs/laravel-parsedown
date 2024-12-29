@@ -1,8 +1,9 @@
 <?php
 
-namespace Kudashevs\LaravelParsedown\Tests;
+namespace Kudashevs\LaravelParsedown\Tests\Unit;
 
 use Illuminate\Support\Facades\Config;
+use Kudashevs\LaravelParsedown\Tests\TestCase;
 
 /**
  * Class ConfigTest

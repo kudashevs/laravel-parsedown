@@ -1,6 +1,8 @@
 <?php
 
-namespace Kudashevs\LaravelParsedown\Tests;
+namespace Kudashevs\LaravelParsedown\Tests\Unit;
+
+use Kudashevs\LaravelParsedown\Tests\TestCase;
 
 /**
  * Class HelperTest
