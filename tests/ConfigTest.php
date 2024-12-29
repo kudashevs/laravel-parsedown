@@ -13,57 +13,111 @@ class ConfigTest extends TestCase
     protected string $url = 'https://parsedown.org/';
 
     /** @test */
+    public function it_can_enable_safe_mode(): void
+    {
+        Config::set('parsedown.safe_mode', true);
+
+        $expected = htmlentities('<script />');
+        $actual = parsedown('<script />', true);
+
+        $this->assertSame($expected, $actual);
+    }
+
+    /** @test */
     public function it_can_disable_safe_mode(): void
     {
         Config::set('parsedown.safe_mode', false);
 
-        $actual = parsedown(
-            $expected = '<script />'
-        );
+        $expected = '<script />';
+        $actual = parsedown('<script />');
 
         $this->assertSame($expected, $actual);
     }
 
     /** @test */
-    public function it_can_disable_url_linking(): void
+    public function it_can_enable_breaks(): void
     {
-        Config::set('parsedown.urls_linked', false);
+        Config::set('parsedown.enable_breaks', true);
 
-        $actual = parsedown($this->url);
-        $expected = '<p>' . $this->url . '</p>';
+        $expected = '<p><strong>Parsedown</strong> Test<br />' . "\n" . '<strong>Parsedown</strong> Test</p>';
+        $actual = parsedown('**Parsedown** Test' . "\n" . '**Parsedown** Test');
 
         $this->assertSame($expected, $actual);
     }
 
     /** @test */
-    public function it_can_enable_breaks_parsing(): void
+    public function it_can_disable_breaks(): void
     {
-        Config::set('parsedown.breaks_enabled', true);
+        Config::set('parsedown.enable_breaks', false);
 
-        $actual = parsedown('**Parsedown** Test' . PHP_EOL . '**Parsedown** Test');
-        $expected = '<p><strong>Parsedown</strong> Test<br />' . PHP_EOL . '<strong>Parsedown</strong> Test</p>';
-
-        $this->assertSame($expected, $actual);
-    }
-
-    /** @test */
-    public function it_can_enable_inline_parsing(): void
-    {
-        Config::set('parsedown.inline', true);
-
-        $actual = parsedown('**Parsedown** Test');
-        $expected = '<strong>Parsedown</strong> Test';
+        $expected = '<p><strong>Parsedown</strong> Test' . "\n" . '<strong>Parsedown</strong> Test</p>';
+        $actual = parsedown('**Parsedown** Test' . "\n" . '**Parsedown** Test');
 
         $this->assertSame($expected, $actual);
     }
 
     /** @test */
-    public function it_can_enable_markup_escaping(): void
+    public function it_can_enable_escape_markup(): void
     {
         Config::set('parsedown.markup_escaped', true);
 
-        $actual = parsedown('<span>' . '**Parsedown** Test' . '</span>');
         $expected = '<p>' . htmlentities('<span>') . '<strong>Parsedown</strong> Test' . htmlentities('</span>') . '</p>';
+        $actual = parsedown('<span>' . '**Parsedown** Test' . '</span>');
+
+        $this->assertSame($expected, $actual);
+    }
+
+    /** @test */
+    public function it_can_disable_escape_markup(): void
+    {
+        Config::set('parsedown.markup_escaped', false);
+
+        $expected = '<p>' . htmlentities('<span>') . '<strong>Parsedown</strong> Test' . htmlentities('</span>') . '</p>';
+        $actual = parsedown('<span>' . '**Parsedown** Test' . '</span>');
+
+        $this->assertSame($expected, $actual);
+    }
+
+    /** @test */
+    public function it_can_enable_link_urls(): void
+    {
+        Config::set('parsedown.link_urls', true);
+
+        $expected = '<a href="' . $this->url . '">' . $this->url . '</a>';
+        $actual = parsedown($this->url, true);
+
+        $this->assertSame($expected, $actual);
+    }
+
+    /** @test */
+    public function it_can_disable_link_urls(): void
+    {
+        Config::set('parsedown.link_urls', false);
+
+        $expected = $this->url;
+        $actual = parsedown($this->url, true);
+
+        $this->assertSame($expected, $actual);
+    }
+
+    /** @test */
+    public function it_can_enable_inline(): void
+    {
+        Config::set('parsedown.inline', true);
+
+        $expected = '<strong>Parsedown</strong> Test';
+        $actual = parsedown('**Parsedown** Test');
+
+        $this->assertSame($expected, $actual);
+    }
+
+    /** @test */
+    public function it_can_disable_inline(): void
+    {
+        Config::set('parsedown.inline', false);
+
+        $expected = '<p><strong>Parsedown</strong> Test</p>';
+        $actual = parsedown('**Parsedown** Test');
 
         $this->assertSame($expected, $actual);
     }

@@ -37,20 +37,20 @@ class ParsedownServiceProvider extends ServiceProvider
         $this->app->singleton('parsedown', function () {
             $parsedown = Parsedown::instance();
 
-            $parsedown->setBreaksEnabled(
-                Config::get('parsedown.breaks_enabled')
-            );
-
-            $parsedown->setMarkupEscaped(
-                Config::get('parsedown.markup_escaped')
-            );
-
             $parsedown->setSafeMode(
                 Config::get('parsedown.safe_mode')
             );
 
+            $parsedown->setBreaksEnabled(
+                Config::get('parsedown.enable_breaks')
+            );
+
+            $parsedown->setMarkupEscaped(
+                Config::get('parsedown.escape_markup')
+            );
+
             $parsedown->setUrlsLinked(
-                Config::get('parsedown.urls_linked')
+                Config::get('parsedown.link_urls')
             );
 
             return $parsedown;
