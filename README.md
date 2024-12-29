@@ -1,4 +1,4 @@
-## Laravel Parsedonw ![test workflow](https://github.com/kudashevs/laravel-parsedown/actions/workflows/run-tests.yml/badge.svg)
+## Laravel Parsedown ![test workflow](https://github.com/kudashevs/laravel-parsedown/actions/workflows/run-tests.yml/badge.svg)
 
 This is a Laravel **Parsedown** wrapper. If you want to know more about it, check out the [Parsedown repo](https://github.com/erusev/parsedown).
 
