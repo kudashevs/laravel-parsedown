@@ -1,99 +1,84 @@
-> You might also like [Caret](https://caret.io?ref=parsedown) - our Markdown editor for Mac / Windows / Linux.
+## Parsedown for Laravel ![test workflow](https://github.com/kudashevs/laravel-parsedown/actions/workflows/run-tests.yml/badge.svg)
 
-## Parsedown for Laravel
+This is a Laravel **Parsedown** wrapper. If you want to know more about **Parsedown**, check out the [Parsedown repository](https://github.com/erusev/parsedown).
 
-[![Build Status](https://travis-ci.org/parsedown/laravel.svg?branch=master)](https://travis-ci.org/parsedown/laravel)
 
-This package is a [Laravel](https://github.com/laravel/laravel) wrapper around **Parsedown**. If you want to know more about **Parsedown** alone check out our [base repository](https://github.com/erusev/parsedown).
+## Installation
 
-### Features
-
-* Blade Directive
-* Configuration File
-* Helper Function
-
-### Installation
-
-**Parsedown for Laravel** is available as [a **Composer** package](https://packagist.org/packages/parsedown/laravel). You can install it using the command below:
+You can install the package via composer:
 
 ``` bash
-composer require parsedown/laravel
+composer require kudashevs/laravel-parsedown
 ```
 
-### Configuration
 
-If you're using **Laravel** +5.5 you don't need to follow the steps below. The [package auto-discovery](https://laravel-news.com/package-auto-discovery) feature has been implemented and will take care of loading the service provider for you.
+## Features
 
-But if that's not your case you will need to add the service provider to your `config/app.php` file:
-``` php
-return [
-    // Other configurations above...
+* Configuration File
+* Blade Directive
+* Helper Function
 
-    'providers' => [
-        // Other providers above...
-        Parsedown\Providers\ParsedownServiceProvider::class,
-        // Other providers below...
-    ],
 
-    // Other configurations below...
-];
+## Configuration
+
+If you don't use auto-discovery just add a ParsedownServiceProvider to the `config/app.php`
+```php
+'providers' => [
+    Kudashevs\LaravelParsedown\Providers\ParsedownServiceProvider::class,
+],
 ```
 
-This package uses the `Parsedown\Providers\ParsedownServiceProvider` service provider to create a singleton of **Parsedown**. That's stored it in a container called `parsedown`. It uses the following options to set the default behavior for that instance:
+This package uses the `ParsedownServiceProvider` service provider to create a singleton with a **Parsedown** instance.
+It's stored in a container under the `parsedown` name. It uses the following options to set the behavior for this instance:
 
-| Name             | Description                                                                                    | Default |
-|:-----------------|:-----------------------------------------------------------------------------------------------|:--------|
-| `breaks_enabled` | Converts line breaks such as `\n` into `<br />` tags.                                          | `false` |
-| `inline`         | Enables inline parsing for the `parsedown()` helper and the `@parsedown` directive by default. | `false` |
-| `markup_escaped` | Escapes **HTML** in trusted input. Redundant if `safe_mode` is enabled.                        | `false` |
-| `safe_mode`      | Doesn't process untrusted user-input.                                                          | `true`  |
-| `urls_linked`    | Automatically converts **URL**s into anchor tags.                                              | `true`  |
+| Name             | Description                                                                                       | Default |
+|:-----------------|:--------------------------------------------------------------------------------------------------|:--------|
+| `enable_extra`   | Uses the [ParsedownExtra](https://github.com/erusev/parsedown-extra) class instead of Parsedown.  | `false` |
+| `safe_mode`      | Processes untrusted user-input.                                                                   | `true`  |
+| `enable_breaks`  | Converts line breaks such as `\n` into `<br />` tags.                                             | `false` |
+| `escape_markup`  | Escapes **HTML** in trusted input. Redundant if `safe_mode` is enabled.                           | `false` |
+| `link_urls`      | Automatically converts **URL**s into anchor tags.                                                 | `true`  |
+| `inline`         | Uses inline parsing for the `parsedown()` helper and the `@parsedown` directive by default.       | `false` |
 
 You can overwrite these values by publishing the `config/parsedown.php` file with the following command:
 
-``` sh
-php artisan vendor:publish --provider="Parsedown\Providers\ParsedownServiceProvider"
+```bash
+php artisan vendor:publish --provider="Kudashevs\LaravelParsedown\Providers\ParsedownServiceProvider"
 ```
 
-### Usage
 
-The snippets below show how you can easily use **Parsedown** in your `*.blade.php` files:
+## Usage
+
+The code below shows how you can use **Parsedown** in your `*.blade.php` files:
 
 ``` blade
 @parsedown('Hello _Parsedown_!')
 ```
-
-...or (using the helper approach)
-
+...or (using a helper instead)
 ``` blade
 {{ parsedown('Hello _Parsedown_!') }}
 ```
 
-Any of the code above will generate:
-
+These examples are going to convert Markdown into this HTML code:
 ``` html
 <p>Hello <em>Parsedown</em>!</p>
 ```
 
-If you want to parse a value using the inline style you just need to set the second argument as `true`:
-
+If you want to use the inline parsing style, you just need to set the second argument as `true`:
 ``` blade
 @parsedown('Hello _Parsedown_!', true)
 ```
-
-...or (using the helper approach)
-
+...or (using a helper instead)
 ``` blade
 {{ parsedown('Hello _Parsedown_!', true) }}
 ```
 
 Any of the code above will generate:
-
 ``` html
 Hello <em>Parsedown</em>!
 ```
 
-The helper is globally available and can also be used with **PHP** code throughout your project.
+The helper is globally available and can also be used with PHP code throughout your project.
 
 
 ## License
