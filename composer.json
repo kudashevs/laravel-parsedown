@@ -42,6 +42,10 @@
             "Kudashevs\\LaravelParsedown\\Tests\\": "tests/"
         }
     },
+    "scripts": {
+        "test": "vendor/bin/phpunit --no-coverage",
+        "test-coverage": "vendor/bin/phpunit --coverage-html build/coverage"
+    },
     "extra": {
         "laravel": {
             "providers": [
