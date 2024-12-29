@@ -15,8 +15,8 @@ class DirectiveTest extends TestCase
     {
         $compiler = $this->getCompiler();
 
-        $actual = $compiler->compileString('@parsedown("' . $this->text . '")');
-        $expected = '<?php echo parsedown("' . $this->text . '"); ?>';
+        $actual = $compiler->compileString('@parsedown("**Parsedown** Test")');
+        $expected = '<?php echo parsedown("**Parsedown** Test"); ?>';
 
         $this->assertSame($expected, $actual);
     }
@@ -26,8 +26,8 @@ class DirectiveTest extends TestCase
     {
         $compiler = $this->getCompiler();
 
-        $actual = $compiler->compileString('@parsedown("' . $this->text . ', true")');
-        $expected = '<?php echo parsedown("' . $this->text . ', true"); ?>';
+        $actual = $compiler->compileString('@parsedown("**Parsedown** Test, true")');
+        $expected = '<?php echo parsedown("**Parsedown** Test, true"); ?>';
 
         $this->assertSame($expected, $actual);
     }

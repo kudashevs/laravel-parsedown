@@ -40,8 +40,8 @@ class ConfigTest extends TestCase
     {
         Config::set('parsedown.breaks_enabled', true);
 
-        $actual = parsedown($this->text . PHP_EOL . $this->text);
-        $expected = '<p><strong>Parsedown</strong> UnitTest<br />' . PHP_EOL . '<strong>Parsedown</strong> UnitTest</p>';
+        $actual = parsedown('**Parsedown** Test' . PHP_EOL . '**Parsedown** Test');
+        $expected = '<p><strong>Parsedown</strong> Test<br />' . PHP_EOL . '<strong>Parsedown</strong> Test</p>';
 
         $this->assertSame($expected, $actual);
     }
@@ -51,8 +51,8 @@ class ConfigTest extends TestCase
     {
         Config::set('parsedown.inline', true);
 
-        $actual = parsedown($this->text);
-        $expected = '<strong>Parsedown</strong> UnitTest';
+        $actual = parsedown('**Parsedown** Test');
+        $expected = '<strong>Parsedown</strong> Test';
 
         $this->assertSame($expected, $actual);
     }
@@ -62,8 +62,8 @@ class ConfigTest extends TestCase
     {
         Config::set('parsedown.markup_escaped', true);
 
-        $actual = parsedown('<span>' . $this->text . '</span>');
-        $expected = '<p>' . htmlentities('<span>') . '<strong>Parsedown</strong> UnitTest' . htmlentities('</span>') . '</p>';
+        $actual = parsedown('<span>' . '**Parsedown** Test' . '</span>');
+        $expected = '<p>' . htmlentities('<span>') . '<strong>Parsedown</strong> Test' . htmlentities('</span>') . '</p>';
 
         $this->assertSame($expected, $actual);
     }

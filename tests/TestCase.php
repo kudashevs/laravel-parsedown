@@ -10,9 +10,6 @@ use Kudashevs\LaravelParsedown\Providers\ParsedownServiceProvider;
  */
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
-    protected string $text = '**Parsedown** UnitTest';
-
-
     protected function getPackageProviders($app)
     {
         return [
