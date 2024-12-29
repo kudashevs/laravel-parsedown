@@ -13,9 +13,6 @@ use Parsedown;
  */
 class ParsedownServiceProvider extends ServiceProvider
 {
-    /**
-     * @return void
-     */
     public function boot(): void
     {
         $this->compiler()->directive('parsedown', function (string $expression = '') {
@@ -27,9 +24,6 @@ class ParsedownServiceProvider extends ServiceProvider
         ]);
     }
 
-    /**
-     * @return BladeCompiler
-     */
     protected function compiler(): BladeCompiler
     {
         return app('view')
@@ -38,9 +32,6 @@ class ParsedownServiceProvider extends ServiceProvider
             ->getCompiler();
     }
 
-    /**
-     * @return void
-     */
     public function register(): void
     {
         $this->app->singleton('parsedown', function () {
