@@ -1,6 +1,7 @@
 <?php
 
 namespace Tests;
+namespace Kudashevs\LaravelParsedown\Tests;
 
 /**
  * Class DirectiveTest

@@ -30,16 +30,14 @@
             "src/Support/helpers.php"
         ],
         "psr-4": {
-            "Parsedown\\": "src/"
+            "Kudashevs\\LaravelParsedown\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Kudashevs\\LaravelParsedown\\Tests\\": "tests/"
         }
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "extra": {
         "laravel": {
             "providers": [

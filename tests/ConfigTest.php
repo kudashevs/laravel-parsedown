@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Kudashevs\LaravelParsedown\Tests;
 
 use Illuminate\Support\Facades\Config;
 

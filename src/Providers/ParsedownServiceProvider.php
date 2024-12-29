@@ -1,6 +1,6 @@
 <?php
 
-namespace Parsedown\Providers;
+namespace Kudashevs\LaravelParsedown\Providers;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
