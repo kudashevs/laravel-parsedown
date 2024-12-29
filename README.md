@@ -21,27 +21,26 @@ composer require kudashevs/laravel-parsedown
 
 ## Configuration
 
-If you don't use auto-discovery just add a ParsedownServiceProvider to the `config/app.php`
+If you don't use auto-discovery, just add a ParsedownServiceProvider to the `config/app.php`
 ```php
 'providers' => [
     Kudashevs\LaravelParsedown\Providers\ParsedownServiceProvider::class,
 ],
 ```
 
-This package uses the `ParsedownServiceProvider` service provider to create a singleton with a **Parsedown** instance.
-It's stored in a container under the `parsedown` name. It uses the following options to set the behavior for this instance:
+This package uses the `ParsedownServiceProvider` service provider to create a singleton with a **Parsedown** instance. This
+instance is stored in the container under the `parsedown` name. To change the behavior of this instance, use the following options:
 
-| Name             | Description                                                                                       | Default |
-|:-----------------|:--------------------------------------------------------------------------------------------------|:--------|
-| `enable_extra`   | Uses the [ParsedownExtra](https://github.com/erusev/parsedown-extra) class instead of Parsedown.  | `false` |
-| `safe_mode`      | Processes untrusted user-input.                                                                   | `true`  |
-| `enable_breaks`  | Converts line breaks such as `\n` into `<br />` tags.                                             | `false` |
-| `escape_markup`  | Escapes **HTML** in trusted input. Redundant if `safe_mode` is enabled.                           | `false` |
-| `link_urls`      | Automatically converts **URL**s into anchor tags.                                                 | `true`  |
-| `inline`         | Uses inline parsing for the `parsedown()` helper and the `@parsedown` directive by default.       | `false` |
+| Name             | Description                                                                                          | Default |
+|:-----------------|:-----------------------------------------------------------------------------------------------------|:--------|
+| `enable_extra`   | Instantiates [ParsedownExtra](https://github.com/erusev/parsedown-extra) class instead of Parsedown. | `false` |
+| `safe_mode`      | Processes untrusted user-input.                                                                      | `true`  |
+| `enable_breaks`  | Converts line breaks such as `\n` into `<br />` tags.                                                | `false` |
+| `escape_markup`  | Escapes **HTML** in trusted input. Redundant if `safe_mode` is enabled.                              | `false` |
+| `link_urls`      | Automatically converts **URL**s into anchor tags.                                                    | `true`  |
+| `inline`         | Tells the `parsedown()` helper and `@parsedown` directive to use inline parsing by default.          | `false` |
 
 You can overwrite these values by publishing the `config/parsedown.php` file with the following command:
-
 ```bash
 php artisan vendor:publish --provider="Kudashevs\LaravelParsedown\Providers\ParsedownServiceProvider"
 ```
