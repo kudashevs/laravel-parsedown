@@ -1,11 +1,11 @@
 <?php
 
 /**
- * @param string $value
+ * @param string $text
  * @param bool $inline
  * @return string
  */
-function parsedown(string $value, ?bool $inline = null)
+function parsedown(string $text, ?bool $inline = null)
 {
     /**
      * @var Parsedown $parser
@@ -17,8 +17,8 @@ function parsedown(string $value, ?bool $inline = null)
     }
 
     if ($inline) {
-        return $parser->line($value);
+        return $parser->line($text);
     }
 
-    return $parser->text($value);
+    return $parser->text($text);
 }
