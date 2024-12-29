@@ -18,7 +18,6 @@ final class Parsedown
         $this->parser = (isset($options['enable_extra']) && $options['enable_extra'] === true)
             ? new \ParsedownExtra()
             : new \Parsedown();
-
     }
 
     public function line(string $text): string
