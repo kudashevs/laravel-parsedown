@@ -48,12 +48,11 @@ php artisan vendor:publish --provider="Kudashevs\LaravelParsedown\Providers\Pars
 
 ## Usage
 
-The code below shows how you can use **Parsedown** in your `*.blade.php` files:
-
+The code below shows how the `laravel-parsedown` can be used in `*.blade.php` files:
 ```blade
 @parsedown('Hello _Parsedown_!')
 ```
-...or (using a helper instead)
+...or using the helper instead:
 ```blade
 {{ parsedown('Hello _Parsedown_!') }}
 ```
@@ -67,12 +66,12 @@ If you want to use the inline parsing style, you just need to set the second arg
 ```blade
 @parsedown('Hello _Parsedown_!', true)
 ```
-...or (using a helper instead)
+...or using the helper instead:
 ```blade
 {{ parsedown('Hello _Parsedown_!', true) }}
 ```
 
-Any of the code above will generate:
+The parsing style examples are going to generate:
 ```html
 Hello <em>Parsedown</em>!
 ```
