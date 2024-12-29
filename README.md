@@ -95,26 +95,6 @@ Hello <em>Parsedown</em>!
 
 The helper is globally available and can also be used with **PHP** code throughout your project.
 
-## Lumen Support
-
-**Laravel** and **Lumen** pretty much share the same core code. The instructions below should be enough to set this package for your **Lumen** project.
-
-### Enable Facades in Your Project
-
-Ensure you have the following in your `bootstrap/app.php` file:
-
-```php
-$app->withFacades();
-```
-
-### Service Provider Registering
-
-As **Lumen** does not support package auto-discovery you got to do it manually adding the code below in your `bootstrap/app.php` file:
-
-```php
-$app->register(Parsedown\Providers\ParsedownServiceProvider::class);
-```
-
 
 ## License
 
