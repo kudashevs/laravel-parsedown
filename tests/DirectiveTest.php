@@ -1,7 +1,8 @@
 <?php
 
-namespace Tests;
 namespace Kudashevs\LaravelParsedown\Tests;
+
+use Illuminate\View\Compilers\BladeCompiler;
 
 /**
  * Class DirectiveTest
@@ -29,5 +30,10 @@ class DirectiveTest extends TestCase
         $expected = '<?php echo parsedown("' . $this->text . ', true"); ?>';
 
         $this->assertSame($expected, $actual);
+    }
+
+    protected function getCompiler(): BladeCompiler
+    {
+        return $this->app->make(BladeCompiler::class);
     }
 }
