@@ -6,23 +6,28 @@ use Kudashevs\LaravelParsedown\Parsedown;
 
 class ParsedownTest extends TestCase
 {
+    private Parsedown $parser;
+
+    protected function setUp(): void
+    {
+        $this->parser = new Parsedown();
+    }
+
     /** @test */
     public function it_can_parse_a_line(): void
     {
-        $text = '**Parsedown** Test';
         $expected = '<strong>Parsedown</strong> Test';
-        $parsedown = new Parsedown();
+        $text = '**Parsedown** Test';
 
-        $this->assertSame($expected, $parsedown->line($text));
+        $this->assertSame($expected, $this->parser->line($text));
     }
 
     /** @test */
     public function it_can_parse_a_text(): void
     {
-        $text = '**Parsedown** Test';
         $expected = '<p><strong>Parsedown</strong> Test</p>';
-        $parsedown = new Parsedown();
+        $text = '**Parsedown** Test';
 
-        $this->assertSame($expected, $parsedown->text($text));
+        $this->assertSame($expected, $this->parser->text($text));
     }
 }
