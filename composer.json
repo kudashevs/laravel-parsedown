@@ -41,8 +41,11 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Parsedown\\Providers\\ParsedownServiceProvider"
-            ]
+                "Kudashevs\\LaravelParsedown\\Providers\\ParsedownServiceProvider"
+            ],
+            "aliases": {
+                "Parsedownn": "Kudashevs\\LaravelParsedown\\Facades\\ParsedownFacade"
+            }
         }
     }
 }
