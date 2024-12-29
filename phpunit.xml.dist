@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php"
+         backupGlobals="false"
+         colors="true"
+         stopOnError="false"
+         stopOnFailure="false"
+         stopOnRisky="false"
+         stopOnWarning="false"
+         processIsolation="false"
+         cacheDirectory=".phpunit.cache">
+    <testsuites>
+        <testsuite name="Laravel Parsedown Test Suite">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+        <exclude>
+            <file>src/Facades/ParsedownFacade.php</file>
+            <file>src/Providers/ParsedownServiceProvider.php</file>
+        </exclude>
+    </source>
+</phpunit>
