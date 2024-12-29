@@ -10,9 +10,6 @@ use Parsedown;
  */
 class HelperTest extends TestCase
 {
-    /**
-     * @return void
-     */
     public function testCanCastString(): void
     {
         $actual = parsedown($this->text);
@@ -21,9 +18,6 @@ class HelperTest extends TestCase
         $this->assertSame($expected, $actual);
     }
 
-    /**
-     * @return void
-     */
     public function testCanInlineString(): void
     {
         $actual = parsedown($this->text, true);
@@ -32,9 +26,6 @@ class HelperTest extends TestCase
         $this->assertSame($expected, $actual);
     }
 
-    /**
-     * @return void
-     */
     public function testCanHandleNoArguments(): void
     {
         $actual = parsedown();
@@ -43,9 +34,6 @@ class HelperTest extends TestCase
         $this->assertInstanceOf($expected, $actual);
     }
 
-    /**
-     * @return void
-     */
     public function testCanHandleNull(): void
     {
         $actual = parsedown(null);

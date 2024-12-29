@@ -15,9 +15,6 @@ class ConfigTest extends TestCase
      */
     protected $url = 'http://parsedown.org/';
 
-    /**
-     * @return void
-     */
     public function testCanDisableSafeMode(): void
     {
         Config::set('parsedown.safe_mode', false);
@@ -29,9 +26,6 @@ class ConfigTest extends TestCase
         $this->assertSame($expected, $actual);
     }
 
-    /**
-     * @return void
-     */
     public function testCanDisableUrlLinking(): void
     {
         Config::set('parsedown.urls_linked', false);
@@ -41,10 +35,7 @@ class ConfigTest extends TestCase
 
         $this->assertSame($expected, $actual);
     }
-    
-    /**
-     * @return void
-     */
+
     public function testCanEnableBreaksParsing(): void
     {
         Config::set('parsedown.breaks_enabled', true);
@@ -55,9 +46,6 @@ class ConfigTest extends TestCase
         $this->assertSame($expected, $actual);
     }
 
-    /**
-     * @return void
-     */
     public function testCanEnableInlineParsing(): void
     {
         Config::set('parsedown.inline', true);
@@ -68,9 +56,6 @@ class ConfigTest extends TestCase
         $this->assertSame($expected, $actual);
     }
 
-    /**
-     * @return void
-     */
     public function testCanEnableMarkupEscaping(): void
     {
         Config::set('parsedown.markup_escaped', true);

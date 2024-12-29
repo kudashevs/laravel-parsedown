@@ -8,9 +8,6 @@ namespace Tests;
  */
 class DirectiveTest extends TestCase
 {
-    /**
-     * @return void
-     */
     public function testCanParseDirective(): void
     {
         $compiler = $this->getCompiler();
@@ -21,9 +18,6 @@ class DirectiveTest extends TestCase
         $this->assertSame($expected, $actual);
     }
 
-    /**
-     * @return void
-     */
     public function testCanParseInlineDirective(): void
     {
         $compiler = $this->getCompiler();
