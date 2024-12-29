@@ -11,7 +11,7 @@ use Illuminate\View\Compilers\BladeCompiler;
 class DirectiveTest extends TestCase
 {
     /** @test */
-    public function it_can_parse_directive(): void
+    public function it_can_use_directive(): void
     {
         $compiler = $this->getCompiler();
 
@@ -22,7 +22,7 @@ class DirectiveTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_inline_directive(): void
+    public function it_can_use_directive_with_inline(): void
     {
         $compiler = $this->getCompiler();
 
