@@ -3,18 +3,14 @@
 /**
  * @param string $value
  * @param bool $inline
- * @return Parsedown|string
+ * @return string
  */
-function parsedown(?string $value = null, bool $inline = null)
+function parsedown(string $value, ?bool $inline = null)
 {
     /**
      * @var Parsedown $parser
      */
     $parser = app('parsedown');
-
-    if (!func_num_args()) {
-        return $parser;
-    }
 
     if (is_null($inline)) {
         $inline = config('parsedown.inline');
