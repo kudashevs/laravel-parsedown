@@ -9,10 +9,10 @@ namespace Kudashevs\LaravelParsedown\Tests;
 class HelperTest extends TestCase
 {
     /** @test */
-    public function it_can_cast_string(): void
+    public function it_can_parse_string(): void
     {
-        $actual = parsedown('**Parsedown** Test');
         $expected = '<p><strong>Parsedown</strong> Test</p>';
+        $actual = parsedown('**Parsedown** Test');
 
         $this->assertSame($expected, $actual);
     }
@@ -20,8 +20,8 @@ class HelperTest extends TestCase
     /** @test */
     public function it_can_inline_string(): void
     {
-        $actual = parsedown('**Parsedown** Test', true);
         $expected = '<strong>Parsedown</strong> Test';
+        $actual = parsedown('**Parsedown** Test', true);
 
         $this->assertSame($expected, $actual);
     }
