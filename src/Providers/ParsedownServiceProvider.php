@@ -2,15 +2,11 @@
 
 namespace Kudashevs\LaravelParsedown\Providers;
 
-use Illuminate\Support\Facades\Config;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
 use Kudashevs\LaravelParsedown\Parsedown;
 
-/**
- * Class ParsedownServiceProvider
- * @package App\Providers
- */
 class ParsedownServiceProvider extends ServiceProvider
 {
     public function boot(): void
@@ -34,36 +30,34 @@ class ParsedownServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        $this->app->singleton(Parsedown::class, function () {
-            $parsedown = $this->makeParsedown();
-
-            $parsedown->setSafeMode(
-                Config::get('parsedown.safe_mode')
-            );
-
-            $parsedown->setBreaksEnabled(
-                Config::get('parsedown.enable_breaks')
-            );
-
-            $parsedown->setMarkupEscaped(
-                Config::get('parsedown.escape_markup')
-            );
-
-            $parsedown->setUrlsLinked(
-                Config::get('parsedown.link_urls')
-            );
-
-            return $parsedown;
-        });
+        $this->app->singleton(Parsedown::class, fn(Application $app) => $this->makeParsedown($app));
         $this->app->alias(Parsedown::class, 'parsedown');
 
         $this->mergeConfigFrom(__DIR__ . '/../Support/parsedown.php', 'parsedown');
     }
 
-    protected function makeParsedown(): Parsedown
+    protected function makeParsedown(Application $app): Parsedown
     {
-        return new Parsedown([
-            'enable_extra' => config('parsedown.enable_extra'),
+        $parsedown = new Parsedown([
+            'enable_extra' => $app['config']->get('parsedown.enable_extra'),
         ]);
+
+        $parsedown->setSafeMode(
+            $app['config']->get('parsedown.safe_mode')
+        );
+
+        $parsedown->setBreaksEnabled(
+            $app['config']->get('parsedown.enable_breaks')
+        );
+
+        $parsedown->setMarkupEscaped(
+            $app['config']->get('parsedown.escape_markup')
+        );
+
+        $parsedown->setUrlsLinked(
+            $app['config']->get('parsedown.link_urls')
+        );
+
+        return $parsedown;
     }
 }
