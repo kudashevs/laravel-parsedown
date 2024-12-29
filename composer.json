@@ -1,20 +1,23 @@
 {
-    "name": "parsedown/laravel",
-    "description": "Official Parsedown's Laravel Wrapper.",
+    "name": "kudashevs/laravel-parsedown",
+    "description": "A Laravel's wrapper of Markdown parser in PHP.",
     "keywords": [
+        "markdown",
         "parsedown",
         "laravel"
     ],
+    "homepage": "https://github.com/kudashevs/kudashevs/laravel-parsedown",
     "license": "MIT",
-    "homepage": "http://parsedown.org",
-    "support": {
-        "issues": "https://github.com/parsedown/laravel/issues",
-        "source": "https://github.com/parsedown/laravel"
-    },
     "authors": [
         {
             "name": "Eduardo Agostini",
             "email": "edu.agostini@gmail.com"
+        },
+        {
+            "name": "Sergey Kudashev",
+            "email": "kudashevs@gmail.com",
+            "homepage": "https://kudashevs.com",
+            "role": "developer"
         }
     ],
     "require": {
