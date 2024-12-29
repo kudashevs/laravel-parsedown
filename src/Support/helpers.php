@@ -12,7 +12,7 @@ function parsedown(string $text, ?bool $inline = null): string
     }
 
     /**
-     * @var Parsedown $parser
+     * @var \Kudashevs\LaravelParsedown\Parsedown $parser
      */
     $parser = app('parsedown');
 
