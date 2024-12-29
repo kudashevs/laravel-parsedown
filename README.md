@@ -114,3 +114,8 @@ As **Lumen** does not support package auto-discovery you got to do it manually a
 ```php
 $app->register(Parsedown\Providers\ParsedownServiceProvider::class);
 ```
+
+
+## License
+
+The MIT License (MIT). Please see the [License file](LICENSE.md) for more information.
