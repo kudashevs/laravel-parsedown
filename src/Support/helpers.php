@@ -5,7 +5,7 @@
  * @param bool $inline
  * @return string
  */
-function parsedown(string $text, ?bool $inline = null)
+function parsedown(string $text, ?bool $inline = null): string
 {
     if (is_null($inline)) {
         $inline = config('parsedown.inline');
