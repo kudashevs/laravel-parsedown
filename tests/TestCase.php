@@ -12,17 +12,11 @@ use Parsedown\Providers\ParsedownServiceProvider;
  */
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
-    protected BladeCompiler $compiler;
-
     protected string $text = '**Parsedown** UnitTest';
 
-    protected function getCompiler()
+    protected function getCompiler(): BladeCompiler
     {
-        if (!$this->compiler) {
-            $this->compiler = $this->app->make(BladeCompiler::class);
-        }
-
-        return $this->compiler;
+        return $this->app->make(BladeCompiler::class);
     }
 
     protected function getPackageProviders($app)
