@@ -1,6 +1,6 @@
 {
     "name": "kudashevs/laravel-parsedown",
-    "description": "A Laravel's wrapper of Markdown parser in PHP.",
+    "description": "A Laravel Parsedown wrapper that converts Mardown text into HTML.",
     "keywords": [
         "markdown",
         "parsedown",
