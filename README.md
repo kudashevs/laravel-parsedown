@@ -7,7 +7,7 @@ This is a Laravel **Parsedown** wrapper. If you want to know more about it, chec
 
 You can install the package via composer:
 
-``` bash
+```bash
 composer require kudashevs/laravel-parsedown
 ```
 
@@ -51,30 +51,30 @@ php artisan vendor:publish --provider="Kudashevs\LaravelParsedown\Providers\Pars
 
 The code below shows how you can use **Parsedown** in your `*.blade.php` files:
 
-``` blade
+```blade
 @parsedown('Hello _Parsedown_!')
 ```
 ...or (using a helper instead)
-``` blade
+```blade
 {{ parsedown('Hello _Parsedown_!') }}
 ```
 
 These examples are going to convert Markdown into this HTML code:
-``` html
+```html
 <p>Hello <em>Parsedown</em>!</p>
 ```
 
 If you want to use the inline parsing style, you just need to set the second argument as `true`:
-``` blade
+```blade
 @parsedown('Hello _Parsedown_!', true)
 ```
 ...or (using a helper instead)
-``` blade
+```blade
 {{ parsedown('Hello _Parsedown_!', true) }}
 ```
 
 Any of the code above will generate:
-``` html
+```html
 Hello <em>Parsedown</em>!
 ```
 
