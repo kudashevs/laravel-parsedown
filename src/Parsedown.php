@@ -8,9 +8,17 @@ final class Parsedown
 {
     private \Parsedown $parser;
 
-    public function __construct()
+    public function __construct(array $options = [])
     {
-        $this->parser = new \Parsedown();
+        $this->initParser($options);
+    }
+
+    private function initParser(array $options)
+    {
+        $this->parser = (isset($options['enable_extra']) && $options['enable_extra'] === true)
+            ? new \ParsedownExtra()
+            : new \Parsedown();
+
     }
 
     public function line(string $text): string
