@@ -34,7 +34,7 @@ class ParsedownServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        $this->app->singleton('parsedown', function () {
+        $this->app->singleton(Parsedown::class, function () {
             $parsedown = $this->makeParsedown();
 
             $parsedown->setSafeMode(
@@ -55,6 +55,7 @@ class ParsedownServiceProvider extends ServiceProvider
 
             return $parsedown;
         });
+        $this->app->alias(Parsedown::class, 'parsedown');
 
         $this->mergeConfigFrom(__DIR__ . '/../Support/parsedown.php', 'parsedown');
     }
