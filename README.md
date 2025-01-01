@@ -1,4 +1,8 @@
-## Laravel Parsedown ![test workflow](https://github.com/kudashevs/laravel-parsedown/actions/workflows/run-tests.yml/badge.svg)
+# Laravel Parsedown
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/kudashevs/laravel-parsedown.svg)](https://packagist.org/packages/kudashevs/laravel-parsedown)
+[![Run Tests](https://github.com/kudashevs/laravel-parsedown/actions/workflows/run-tests.yml/badge.svg)](https://github.com/kudashevs/laravel-parsedown/actions/workflows/run-tests.yml)
+[![License MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.md)
 
 This is a **Laravel Parsedown** wrapper. If you want to know more about Parsedown, check out the [official repo](https://github.com/erusev/parsedown).
 
