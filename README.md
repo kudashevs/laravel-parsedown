@@ -85,4 +85,4 @@ The helper is globally available and can also be used with PHP code throughout y
 
 ## License
 
-The MIT License (MIT). Please see the [License file](LICENSE.md) for more information.
+The MIT License (MIT). Please see the [License file](LICENSE) for more information.
